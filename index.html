@@ -23,7 +23,7 @@
 
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 20px 5%;
       background: linear-gradient(90deg, #0078d4, #0056a6);
@@ -31,11 +31,6 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       flex-wrap: wrap;
       gap: 15px;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
     }
 
     header nav {
@@ -55,11 +50,9 @@
       color: #ffd700;
     }
 
-    /* ===== Mobile Navigation Fixes ===== */
     @media (max-width: 768px) {
       header {
         padding: 15px 5%;
-        justify-content: center;
       }
 
       header nav {
@@ -141,11 +134,41 @@
       color: #0056a6;
     }
   </style>
-  <!-- Keep the JavaScript as is -->
+  <!-- JavaScript remains unchanged -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const textElement = document.getElementById("about-text");
+      const aboutTexts = [
+        "I am studying Digital Production Design and Development at Bournemouth and Poole College.",
+        " where I have the opportunity to work on real-world projects in digital media,",
+        "At Bournemouth and Poole College, I am developing skills in digital design. ",
+        "and programming to build immersive digital experiences."
+      ];
+      let currentText = 0;
+      let charIndex = 0;
+      const typingSpeed = 100;
+
+      function typeWriter() {
+        if (charIndex < aboutTexts[currentText].length) {
+          textElement.innerHTML += aboutTexts[currentText].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, typingSpeed);
+        } else {
+          setTimeout(() => {
+            textElement.innerHTML = "";
+            charIndex = 0;
+            currentText = (currentText + 1) % aboutTexts.length;
+            typeWriter();
+          }, 1000);
+        }
+      }
+
+      typeWriter();
+    });
+  </script>
 </head>
 <body>
   <header>
-    <div class="logo">Parwiz Askari</div>
     <nav>
       <a href="cv.html">Resume</a>
       <a href="#research">Research</a>
@@ -165,7 +188,12 @@
   <footer>
     <p>Contact me:</p>
     <div class="social-links">
-      <!-- Keep social links as is -->
+      <a href="mailto:parwizaskari960@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/00447857968336" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.facebook.com/share/19DSgBhQda/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
   </footer>
 </body>
