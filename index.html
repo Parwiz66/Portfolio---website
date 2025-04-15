@@ -114,14 +114,29 @@
     @media (max-width: 768px) {
       header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         padding: 15px 20px;
+        text-align: center;
       }
 
       header nav {
-        justify-content: flex-start;
-        gap: 15px;
         flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      header nav a {
+        font-size: 16px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+
+      header nav a:last-child {
+        border-bottom: none;
       }
 
       .profile h2 {
