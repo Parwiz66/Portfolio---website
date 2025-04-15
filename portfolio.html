@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #e0eafc, #cfdef3); /* Soft pastel gradient */
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: linear-gradient(90deg, #0078d4, #0056a6); /* Blue gradient for modern look */
+            color: #ffffff; /* White text for contrast */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #ffffff; /* White text for links */
+            font-size: 16px;
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        header nav a:hover {
+            color: #ffd700; /* Gold color on hover for a touch of elegance */
+        }
+
+        .profile {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .profile img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile h2 {
+            font-size: 32px;
+            margin: 0;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .profile .about-slideshow {
+            font-size: 20px; /* Adjusted font size for "About Me" */
+            color: #555;
+            margin: 0 auto;
+            line-height: 1.5;
+            max-width: 600px;
+            text-align: center;
+            display: inline-block;
+            white-space: nowrap;
+            padding-top: 20px;
+            font-family: 'Georgia', serif; /* Nice, readable font for about text */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #070707;
+            font-size: 18px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        footer .social-links a {
+            color: #0078d4; /* Blue color for the links */
+            font-size: 20px; /* Larger font size for icons */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #0056a6; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textElement = document.getElementById("about-text");
+            const aboutText = "I am studying Digital Production Design and Development at Bournemouth and Poole College.";
+            const aboutText2 = " where I have the opportunity to work on real-world projects in digital media,";
+            const aboutText3 = "At Bournemouth and Poole College, I am developing skills in digital design. ";
+            const aboutText4 = "and programming to build immersive digital experiences."
+            let currentText = 0;
+            let charIndex = 0;
+            const typingSpeed = 100; // Delay between typing each character (ms)
+
+            // Array containing all texts
+            const aboutTexts = [aboutText, aboutText2, aboutText3, aboutText4];
+
+            function typeWriter() {
+                if (charIndex < aboutTexts[currentText].length) {
+                    textElement.innerHTML += aboutTexts[currentText].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                } else {
+                    // After finishing a text, move to the next one, and loop when done
+                    setTimeout(() => {
+                        textElement.innerHTML = ""; // Clear text
+                        charIndex = 0;
+                        currentText = (currentText + 1) % aboutTexts.length; // Loop through the texts
+                        typeWriter();
+                    }, 1000); // Wait 1 second before starting the next text
+                }
+            }
+
+            typeWriter();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div>
+            <!-- Parwiz Askari -->
+        </div>
+        <nav>
+            <a href="cv.html">Resume</a>
+            <a href="#research">Research</a>
+            <a href="#outreach">Outreach</a>
+            <a href="personal.html">Personal</a>
+        </nav>
+    </header>
+
+    <div class="profile">
+        <img src="Parwiz.jpg" alt="Profile Image">
+        <h2>Parwiz Askari</h2>
+        <div class="about-slideshow">
+            <span id="about-text"></span>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact me:</p>
+        <div class="social-links">
+            <a href="mailto:parwizaskari960@gmail.com" title="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/00447857968336" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/19DSgBhQda/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/yourprofile" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
