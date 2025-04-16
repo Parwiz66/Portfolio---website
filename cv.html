@@ -1,266 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Parwiz Askari</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        .container {
-            display: flex;
-            max-width: 1000px;
-            margin: 20px auto;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
-        }
-        .left-panel {
-            width: 35%;
-            background: #222;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .left-panel img {
-            width: 210px;
-            height: 190px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .left-panel h2 {
-            margin: 10px 0;
-            font-size: 1.5rem;
-            font-family: 'Georgia', serif;
-        }
-        .left-panel p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            font-family: 'Georgia', serif;
-        }
-        .left-panel h3 {
-            margin-top: 20px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 5px;
-            text-align: left;
-        }
-        .left-panel ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-        .left-panel ul li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-        .left-panel ul li i {
-            margin-right: 10px;
-            color: #0077b6;
-        }
-        .right-panel {
-            width: 65%;
-            padding: 20px;
-        }
-        .right-panel h1 {
-            font-size: 2.2rem;
-            color: #222;
-            margin: 0;
-        }
-        .right-panel h2 {
-            font-size: 1.5rem;
-            margin-top: 20px;
-            display: inline-block;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h3 {
-            margin: 10px 0;
-            color: #444;
-        }
-        .section p {
-            margin: 5px 0;
-            line-height: 1.6;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background-color: #0077b6;
-        }
-        .timeline-item {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            background-color: #0077b6;
-            border-radius: 50%;
-        }
-        .search-bar {
-            margin: 20px auto;
-            text-align: center;
-        }
-        .search-bar input[type="text"] {
-            padding: 10px;
-            width: 60%;
-            max-width: 400px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .search-bar button {
-            padding: 10px 15px;
-            margin-left: 5px;
-            background-color: #0077b6;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .search-result {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #0077b6;
-        }
-        .section h2 i {
-            margin-right: 10px;
-            color: #0077b6;
-        }
-        .left-panel ul.skills-list {
-            list-style: disc;
-            padding-left: 5px;
-        }
-        .left-panel ul.skills-list li {
-            margin: 5px 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Parwiz Askari</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    /* Navigation Bar */
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 10%;
+      background: linear-gradient(90deg, #0078d4, #0056a6);
+      color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    header nav a:hover {
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      header nav {
+        gap: 15px;
+        flex-wrap: nowrap;
+        padding: 5px 0;
+      }
+
+      header nav a {
+        font-size: 14px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        flex-shrink: 0;
+      }
+
+      header::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header nav {
+        gap: 10px;
+      }
+
+      header nav a {
+        font-size: 13px;
+        padding: 6px 10px;
+      }
+    }
+
+    /* Resume Content */
+    .search-bar {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .search-bar button {
+      padding: 10px 15px;
+      margin-left: 5px;
+      background-color: #0077b6;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .search-result {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #0077b6;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
+
+    .left-panel {
+      width: 35%;
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .left-panel img {
+      width: 210px;
+      height: 190px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .left-panel h2 {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      font-family: 'Georgia', serif;
+    }
+
+    .left-panel p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-family: 'Georgia', serif;
+    }
+
+    .left-panel h3 {
+      margin-top: 20px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+      text-align: left;
+    }
+
+    .left-panel ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .left-panel ul li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .left-panel ul li i {
+      margin-right: 10px;
+      color: #0077b6;
+    }
+
+    .left-panel ul.skills-list {
+      list-style: disc;
+      padding-left: 5px;
+    }
+
+    .left-panel ul.skills-list li {
+      margin: 5px 0;
+    }
+
+    .right-panel {
+      width: 65%;
+      padding: 20px;
+    }
+
+    .right-panel h1 {
+      font-size: 2.2rem;
+      color: #222;
+      margin: 0;
+    }
+
+    .right-panel h2 {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .right-panel h2 i {
+      margin-right: 10px;
+      color: #0077b6;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .section p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #0077b6;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background-color: #0077b6;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-panel,
+      .right-panel {
+        width: 100%;
+      }
+
+      .left-panel {
+        text-align: left;
+      }
+
+      .left-panel img {
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for information about Parwiz Askari...">
-        <button onclick="searchInfo()">Search</button>
-        <div id="searchResult" class="search-result"></div>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <a href="cv.html">Resume</a>
+      <a href="#research">Research</a>
+      <a href="#outreach">Outreach</a>
+      <a href="personal.html">Personal</a>
+    </nav>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for information about Parwiz Askari...">
+    <button onclick="searchInfo()">Search</button>
+    <div id="searchResult" class="search-result"></div>
+  </div>
+
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <img src="photo.jpg" alt="Profile Photo">
+      <h3>Contact</h3>
+      <ul>
+        <li><i class="fas fa-phone"></i> 07857968336</li>
+        <li><i class="fas fa-envelope"></i> parwizaskari960@gmail.com</li>
+        <li><i class="fas fa-globe"></i> <a href="https://parwiza.github.io/Five-Star-Cafe/" style="color:#fff; text-decoration: none;">Portfolio</a></li>
+      </ul>
+      <h3>Skills</h3>
+      <ul class="skills-list">
+        <li><i class="fas fa-html5"></i>HTML & CSS</li>
+        <li><i class="fas fa-python"></i>Python</li>
+        <li><i class="fas fa-video"></i>Adobe Animate</li>
+        <li><i class="fas fa-file-excel"></i>Microsoft Excel</li>
+        <li><i class="fas fa-user-check"></i>Self-Motivated</li>
+      </ul>
+      <h3>Languages</h3>
+      <ul>
+        <li><i class="fas fa-language"></i> Persian (Native)</li>
+        <li><i class="fas fa-language"></i> English (Fluent)</li>
+        <li><i class="fas fa-language"></i> German (Basic)</li>
+      </ul>
+      <h3>Hobbies</h3>
+      <ul>
+        <li><i class="fas fa-volleyball-ball"></i>Volley ball</li>
+        <li><i class="fas fa-swimmer"></i>Swimming</li>
+        <li><i class="fas fa-book"></i>Reading</li>
+      </ul>
     </div>
 
-    <div class="container">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <img src="photo.jpg" alt="Profile Photo">
-            <!-- Contact Section -->
-            <h3>Contact</h3>
-            <ul>
-                <li><i class="fas fa-phone"></i> 07857968336</li>
-                <li><i class="fas fa-envelope"></i> parwizaskari960@gmail.com</li>
-                <li><i class="fas fa-globe"></i> <a href="https://parwiza.github.io/Five-Star-Cafe/" style="color:#fff; text-decoration: none;">Portfolio</a></li>
-            </ul>
-            <!-- Skills Section -->
-            <h3>Skills</h3>
-            <ul class="skills-list">
-                <li><i class="fas fa-html5"></i>HTML & CSS</li>
-                <li><i class="fas fa-python"></i>python</li>
-                <li><i class="fas fa-python"></i>Adobe Animate</li>
-                <li><i class="fas fa-file-excel"></i>HTML & CSS</li>
-                <li><i class="fas fa-user-check"></i>Self-Motivated</li>
-            </ul>
-            <!-- Languages Section -->
-            <h3>Languages</h3>
-            <ul>
-                <li><i class="fas fa-language"></i> Persian (Native)</li>
-                <li><i class="fas fa-language"></i> English (Fluent)</li>
-                <li><i class="fas fa-language"></i> German (Basic)</li>
-            </ul>
-            <!--Hobbies Section -->
-            <h3>Hobbies</h3>
-            <ul>
-                <li><i class="fas fa-volleyball-ball"></i>Volley ball</li>
-                <li><i class="fas fa-swimmer"></i>Swimming</li>
-                <li><i class="fas fa-book"></i>Reading</li>
-            </ul>
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="section">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <p>I am a dedicated and adaptable individual with a strong passion for technology and problem-solving. My Personal journey from my home county to the UK, which involved crossing multiple countries and navigating numerous challenges equipped me with problem-solving skills, the ability to work independently, and the value of teamwork. I thrive in both independent and team-based settings, effectively managing tasks and time while staying organized. I am always eager to learn, develop new skills, and follow guidance from experienced professionals. My enthusiasm for ICT, combined with my ability to support others and adapt to different challenges, makes me a strong fit for this role within Dorset Council’s ICT team.</p>
+      </div>
+      <div class="section">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="timeline">
+          <h3>Bournemouth and Poole College (2023 - 2024)</h3>
+          <p>- Level Two Gateway to Digital and Computing</p>
+          <p>- GCSE Math Grade 6, GCSE English Grade 4</p>
+          <h3>Bournemouth and Poole College (2024 - 2026)</h3>
+          <p>- T Level in Digital, Production, Design, and Development</p>
         </div>
-
-        <!-- Right Panel -->
-        <div class="right-panel">
-            <!-- About Me Section -->
-            <div class="section">
-                <h2><i class="fas fa-user"></i> About Me</h2>
-                <p>I  am a dedicated and adaptable individual with a strong passion for technology and problem-solving. My Personal journey from my home county to the UK, which involved crossing multiple countries and navigating numerous challenges equipped me with problem-solving skills, the ability to work independently, and the value of teamwork. 
-                I thrive in both independent and team-based settings, effectively managing tasks and time while staying organized. I am always eager to learn, develop new skills, and follow guidance from experienced professionals. My enthusiasm for ICT, combined with my ability to support others and adapt to different challenges, makes me a strong fit for this role within Dorset Council’s ICT team.</p>
-            </div>
-
-            <!-- Education Section -->
-            <div class="section">
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="timeline">
-                        <h3>Bournemouth and Poole College (2023 - 2024)</h3>
-                        <p>- Level Two Gateway to Digital and Computing</p>
-                        <p>- GCSE Math Grade 6, GCSE English Grade 4</p>
-                        <h3>Bournemouth and Poole College (2024 - 2026)</h3>
-                        <p>- T Level in Digital, Production, Design, and Development</p>
-                </div>
-            </div>
-
-            <!-- Work Experience Section -->
-            <div class="section">
-                <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-                <div class="timeline">
-                        <h3>Daily Morrison (2024 - Present)</h3>
-                        <p>
-                            - Serving customers on the till;<br>
-                            - Inputting daily reports of stock inventories;<br>
-                            - Cash handling and end-of-shift procedures;<br>
-                            - Stock control and replenishment;<br>
-                            - Coordinating with delivery companies.
-                        </p>
-                </div>
-            </div>
+      </div>
+      <div class="section">
+        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        <div class="timeline">
+          <h3>Daily Morrison (2024 - Present)</h3>
+          <p>
+            - Serving customers on the till;<br>
+            - Inputting daily reports of stock inventories;<br>
+            - Cash handling and end-of-shift procedures;<br>
+            - Stock control and replenishment;<br>
+            - Coordinating with delivery companies.
+          </p>
         </div>
+      </div>
     </div>
 
-    <script>
-        function searchInfo() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const result = document.getElementById('searchResult');
+  <script>
+    function searchInfo() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const result = document.getElementById('searchResult');
 
-            if (input.includes('contact')) {
-                result.textContent = 'Contact: 07857968336 | parwizaskari960@gmail.com';
-            } else if (input.includes('skills')) {
-                result.textContent = 'Skills: HTML & CSS, Pyhton, Adobe Animate, Microsoft Excel, Self-Motivated';
-            } else if (input.includes('education')) {
-                result.textContent = 'Education: Bournemouth and Poole College (2023-2026)';
-            } else if (input.includes('languages')) {
-                result.textContent = 'Languages: Persian (Native), English (Fluent), German (Basic)';
-            } else if (input.includes('hobbies')) {
-                result.textContent = 'Hobbies: Volley ball, Swimming, Reading';
-            } else {
-                result.textContent = 'No matching information found. Try searching for contact, skills, education, languages or hobbies.';
-            }
-        }
-    </script>
+      if (input.includes('contact')) {
+        result.textContent = 'Contact: 07857968336 | parwizaskari960@gmail.com';
+      } else if (input.includes('skills')) {
+        result.textContent = 'Skills: HTML & CSS, Python, Adobe Animate, Microsoft Excel, Self-Motivated';
+      } else if (input.includes('education')) {
+        result.textContent = 'Education: Bournemouth and Poole College (2023-2026)';
+      } else if (input.includes('languages')) {
+        result.textContent = 'Languages: Persian (Native), English (Fluent), German (Basic)';
+      } else if (input.includes('hobbies')) {
+        result.textContent = 'Hobbies: Volley ball, Swimming, Reading';
+      } else {
+        result.textContent = 'No matching information found. Try searching for contact, skills, education, languages or hobbies.';
+      }
+    }
+  </script>
 </body>
 </html>
