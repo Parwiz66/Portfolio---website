@@ -20,7 +20,7 @@
 
     header {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 20px 10%;
       background: linear-gradient(90deg, #0078d4, #0056a6);
@@ -31,6 +31,7 @@
     header nav {
       display: flex;
       gap: 20px;
+      justify-content: flex-end;
     }
 
     header nav a {
@@ -107,17 +108,17 @@
       color: #0056a6;
     }
 
-    /* === Updated Mobile Styles === */
+    /* === Responsive Styles === */
     @media (max-width: 768px) {
       header {
+        flex-direction: row;
+        justify-content: space-between;
         padding: 15px 5%;
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
       }
 
       header nav {
-        gap: 15px;
+        gap: 12px;
+        overflow-x: auto;
         flex-wrap: nowrap;
         padding: 5px 0;
       }
@@ -128,9 +129,9 @@
         background: rgba(255, 255, 255, 0.1);
         border-radius: 5px;
         flex-shrink: 0;
+        white-space: nowrap;
       }
 
-      /* Hide scrollbar */
       header::-webkit-scrollbar {
         display: none;
       }
@@ -182,6 +183,7 @@
 </head>
 <body>
   <header>
+    <div class="logo"><!-- Optional: You can place your name or logo here --></div>
     <nav>
       <a href="cv.html">Resume</a>
       <a href="#research">Research</a>
